@@ -6,7 +6,7 @@ $asignaturas = get_asignatura($this->session->userdata("id"));
     <div>
         <ul class="breadcrumb">
             <li>
-                <a href="#">Asignatura</a>
+                <a href="<?php echo base_url()?>asignatura/listar">Asignatura</a>
             </li>
             <li>
                 <a href="#">Registrar</a>

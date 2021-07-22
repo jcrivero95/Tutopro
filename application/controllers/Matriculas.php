@@ -11,11 +11,21 @@ class Matriculas extends CI_Controller {
         }
     }
 
-    public function index()
+    public function listado()
     {
         $this->load->view('layout/header');
         $this->load->view('layout/menu_student');
         $this->load->view('Estudents/matricula');
+        $this->load->view('layout/footer');
+
+
+    }
+
+    public function matricular()
+    {
+        $this->load->view('layout/header');
+        $this->load->view('layout/menu_student');
+        $this->load->view('Estudents/matricular');
         $this->load->view('layout/footer');
 
 

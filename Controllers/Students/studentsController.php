@@ -27,9 +27,11 @@ class studentsController
     {
         $validate = (new UsuarioValidator())->validateEmail($email);
         if(!$validate){
+
             return $this->repo->saveStudent($nombre, $apellidos, $tipo_id, $numero_id, $email, $telefono, $pass, $rol);
+
         }
-        return Response::response('Este email ya se encuentra registrado', null, false);
+       return header("Location: " . $_SERVER["HTTP_REFERER"]);
     }
 
     public function martricular($idGrupo, $idEstudiante)
@@ -38,7 +40,7 @@ class studentsController
         if(!$validate){
            return  $this->repo->saveMatricula($idGrupo, $idEstudiante);
         }
-        return Response::response('Ya te encuentras matriculado en este grupo', null, false);
+        return header("Location: " . $_SERVER["HTTP_REFERER"]);
     }
 
     public function agendarCita($nombre, $matricula, $fecha, $descripcion)

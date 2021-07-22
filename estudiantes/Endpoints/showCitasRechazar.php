@@ -9,7 +9,7 @@ $citas = get_AllCitas($id);
     <h3>SOLICITUD DE LA CITA:</h3>
     <p><?php echo $cita->solicitud?></p>
     <input type="hidden" id="idCita" value="<?php echo $cita->id?>">
-    <input type="hidden" id="estado" value="procesada">
+    <input type="hidden" id="estado" value="rechazada">
     <div class="row">
         <div class="col-md-6">
             <label>Respuesta:</label>
@@ -20,7 +20,7 @@ $citas = get_AllCitas($id);
 <div>
 </div><br>
     <div>
-        <button type="button" class="btn btn-primary" onclick="saveRespuesta()">Enviar</button>
+        <button type="button" class="btn btn-danger" onclick="saveRespuesta()">Enviar</button>
     </div>
 
 </form>

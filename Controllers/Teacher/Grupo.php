@@ -34,7 +34,7 @@ class Grupo
         if(!$validateCodigo) {
             return $this->repo->crearGrupo($nombre, $codigo, $periodo, $idProfesor, $asignatura);
         }
-        return Response::response('No se puede crear el grupo con este codigo', null, false);
+        return header("Location: " . $_SERVER["HTTP_REFERER"]);
     }
 
     public function update($nombre, $codigo, $periodo, $idProfesor, $asignatura, $idGrupo)

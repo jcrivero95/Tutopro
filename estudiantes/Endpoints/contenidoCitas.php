@@ -5,7 +5,7 @@ $id = $_POST['id'];
 $citas = get_AllCitas($id);
 ?>
 <?php foreach($citas as $cita){?>
-<form>
+<form id="formContenido">
     <input type="hidden" id="idCita" name="idCita" value="<?php echo $cita->id?>">
     <h3>AGREGAR CONTENIDO</h3>
     <div class="row">

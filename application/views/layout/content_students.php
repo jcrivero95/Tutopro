@@ -26,7 +26,7 @@ $citas = totalCitasEstudent($this->session->userdata("id"));
                 <div class="box-content">
                     <div class=" row">
                         <div class="col-md-3 col-sm-3 col-xs-6">
-                            <a data-toggle="tooltip" title="6 new members." class="well top-block" href="#">
+                            <a data-toggle="tooltip" title="6 new members." class="well top-block" href="<?php echo base_url()?>citas">
                                 <i class="fa fa-bar-chart" aria-hidden="true"></i>
 
                                 <div>Citas Creadas</div>
@@ -38,7 +38,7 @@ $citas = totalCitasEstudent($this->session->userdata("id"));
                         </div>
 
                         <div class="col-md-3 col-sm-3 col-xs-6">
-                            <a data-toggle="tooltip" title="4 new pro members." class="well top-block" href="#">
+                            <a data-toggle="tooltip" title="4 new pro members." class="well top-block"  href="<?php echo base_url()?>citas">
                                 <i class="fa fa-calendar" aria-hidden="true"></i>
 
                                 <div>Citas Pendientes</div>
@@ -50,7 +50,7 @@ $citas = totalCitasEstudent($this->session->userdata("id"));
                             </a>
                         </div>
                         <div class="col-md-3 col-sm-3 col-xs-6">
-                            <a data-toggle="tooltip" title="$34 new sales." class="well top-block" href="#">
+                            <a data-toggle="tooltip" title="$34 new sales." class="well top-block"  href="<?php echo base_url()?>citas">
                                 <i class="fa fa-calendar-o" aria-hidden="true"></i>
                                 <div>Citas Programadas</div>
                                 <?php foreach($citasP as $cita){?>

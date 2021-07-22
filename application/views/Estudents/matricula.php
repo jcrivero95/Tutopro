@@ -1,5 +1,5 @@
 <?php
-
+$matriculas = getMatriculas($this->session->userdata("id"));
 ?>
 <div id="content" class="col-lg-10 col-sm-10">
     <!-- content starts -->
@@ -14,22 +14,39 @@
         <div class="box col-md-12">
             <div class="box-inner">
                 <div class="box-header well" data-original-title="">
-                    <h2>Asignación de citas</h2>
+                    <h2>Matriculas</h2>
 
                 </div>
 
                 <div class="box-content">
-        <input type="hidden" id="idStudent" value=" <?php echo $this->session->userdata("id")?>">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label>Codigo del grupo</label>
-                                <input type="text" class="form-control" id="codigo_grupo">
-                            </div>
-                            <div class="col-md-6">
-                                <br>
-                                <button class="btn btn-primary" onclick="buscarPorCodigo()">Buscar</button>
-                            </div>
-                        </div>
+                    <div>
+                    <a class="btn btn-primary" href="<?php echo base_url()?>matriculas/matricular">Matricular Materia</a>
+                    </div>
+                        <br>
+                    <table class="table table-striped table-bordered bootstrap-datatable datatable responsive" id="example1">
+                        <thead>
+                        <tr>
+                            <th>Codigo</th>
+                            <th>Grupo</th>
+                            <th>Materia</th>
+                            <th>Periodo</th>
+                            <th>Profesor</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php foreach($matriculas as $cita) {?>
+                            <tr>
+                                <td><?php echo $cita->codigoGrupo?></td>
+                                <td><?php echo $cita->nombreGrupo?></td>
+                                <td class="center"><?php echo $cita->nombreMateria?></td>
+                                <td class="center"><?php echo $cita->periodo?></td>
+                                <td class="center">
+                                    <?php echo $cita->nombreProfesor?> <?php echo $cita->apellido?>
+                                </td>
+                            </tr>
+                        <?php }?>
+                        </tbody>
+                    </table>
 
                     <br>
 

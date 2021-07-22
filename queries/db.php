@@ -286,13 +286,13 @@ function getProcesadas($id)
 {
     $repo = array();
     $con = con();
-    $query = $con->query("select distinct c.nombre as nombreCita, a.nombre as nombreAsignatura, c.estado, c.respuesta, c.fecha, c2.nombre, c2.url, c2.descripcion, c2.file from citas c 
+    $query = $con->query("select distinct c.nombre as nombreCita, a.nombre as nombreAsignatura, c.estado, c2.idCita, c.respuesta, c.fecha, c2.nombre, c2.url, c2.descripcion, c2.file from citas c 
 inner join matricula m ON m.id = c.idMatricula 
 inner join grupo g on g.id = m.idGrupo 
 inner join asignatura a on a.id = g.idAsignatura
 inner join usuarios u on u.id = m.idEstudiante 
 inner join contenido c2 on c2.idCita = c.id 
-where u.id = $id and c.estado = 'procesada'");
+where u.id = $id and c.estado <> 'pendiente'");
     while ($r = $query->fetch_object()) {
         $repo[] = $r;
     }
@@ -322,7 +322,22 @@ function getCitasProgramadas($id)
 inner join matricula m ON m.id = c.idMatricula 
 inner join grupo g on g.id = m.idGrupo 
 inner join asignatura a on a.id = g.idAsignatura
-inner join usuarios u on u.id = m.idEstudiante where g.idProfesor = $id and c.estado= 'procesada'");
+inner join usuarios u on u.id = m.idEstudiante where g.idProfesor = $id and c.estado <> 'pendiente'");
+    while ($r = $query->fetch_object()) {
+        $repo[] = $r;
+    }
+    return $repo;
+}
+
+function getMatriculas($id)
+{
+    $repo = array();
+    $con = con();
+    $query = $con->query("select g.codigo as codigoGrupo, g.nombre as nombreGrupo, a.nombre as nombreMateria, g.periodo,  u.nombre as nombreProfesor, u.apellido  from matricula m 
+inner join grupo g on g.id = m.idGrupo
+inner join asignatura a on a.id = g.idAsignatura
+inner join usuarios u on u.id = g.idProfesor 
+where m.idEstudiante = $id");
     while ($r = $query->fetch_object()) {
         $repo[] = $r;
     }

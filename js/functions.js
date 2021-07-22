@@ -1,3 +1,5 @@
+const URL = 'http://localhost/Tutopro/';
+
 function post(url, data, callback = null) {
 
     $.ajax({
@@ -60,7 +62,27 @@ function saveTeacher() {
 
     }
 
-    post(url, data);
+    $.ajax({
+        url,
+        data: 'data=' + encodeURIComponent(JSON.stringify(data)),
+        type: 'post',
+        dataType: "json",
+        crossDomain: false,
+        success: function (response) {
+            message(response);
+            location.href = URL+'profesores/index';
+            if (callback && typeof callback === 'function') {
+                callback(response);
+            }
+        },
+        error: function (r) {
+            alertify.error('Este Email ya se encuentra registrado en el sistema');
+        },
+        complete: () => {
+
+        }
+    });
+
 
 }
 
@@ -76,8 +98,13 @@ function saveGrupo() {
 
     const url = 'saveGrupo.php'
 
-    if (nombre === "" || codigo === "" || asignatura === "" || asignatura === null || periodo === "") {
+    if (nombre === "" || codigo === "" || periodo === "") {
         alertify.error('Digite todos los campos');
+        return null;
+    }
+
+    if(asignatura === null || asignatura === ""){
+        alertify.error('Debe crear una asignatura para crear un grupo');
         return null;
     }
 
@@ -90,7 +117,26 @@ function saveGrupo() {
 
     }
 
-    post(url, data);
+    $.ajax({
+        url,
+        data: 'data=' + encodeURIComponent(JSON.stringify(data)),
+        type: 'post',
+        dataType: "json",
+        crossDomain: false,
+        success: function (response) {
+            message(response);
+            location.href = URL+'grupos/listar';
+            if (callback && typeof callback === 'function') {
+                callback(response);
+            }
+        },
+        error: function (r) {
+            alertify.error('Este codigo existe en otro grupo');
+        },
+        complete: () => {
+
+        }
+    });
 
 }
 
@@ -114,6 +160,7 @@ function saveAsignatura() {
     }
 
     post(url, data);
+    location.href = URL+'asignatura/listar';
 
 }
 
@@ -154,12 +201,13 @@ function saveStudent() {
         crossDomain: false,
         success: function (response) {
             message(response);
+            location.href = URL;
             if (callback && typeof callback === 'function') {
                 callback(response);
             }
         },
         error: function (r) {
-            alertify.error('Algo salio mal');
+            alertify.error('Este Email ya se encuentra registrado en el sistema');
         },
         complete: () => {
 
@@ -176,7 +224,7 @@ function buscarPorCodigo(){
         return null;
     }
     $.ajax({
-        url: "estudiantes/Endpoints/refrescarTabla.php",
+        url: "refrescarTabla.php",
         method: "POST",
         data: {
             "codigo": codigo
@@ -207,7 +255,7 @@ function Matricular(idGrupo) {
 
     var idStudent = $('#idStudent').val();
 
-    const url = 'estudiantes/Endpoints/saveMatricula.php'
+    const url = 'saveMatricula.php'
 
     data = {
         idGrupo,
@@ -216,7 +264,27 @@ function Matricular(idGrupo) {
 
     }
 
-    post(url, data);
+    $.ajax({
+        url,
+        data: 'data=' + encodeURIComponent(JSON.stringify(data)),
+        type: 'post',
+        dataType: "json",
+        crossDomain: false,
+        success: function (response) {
+            message(response);
+            location.href = URL+'matriculas/listado';
+            if (callback && typeof callback === 'function') {
+                callback(response);
+            }
+        },
+        error: function (r) {
+            alertify.error('Ya se encuentra matriculado en este grupos');
+        },
+        complete: () => {
+
+        }
+    });
+
 
 }
 
@@ -227,8 +295,13 @@ function agendarCita() {
     var fecha_cita = $('#fecha_cita').val();
     var descripcionCita = $('#descripcionCita').val();
 
-    if(nombreCita === "" || fecha_cita === ""){
+    if(nombreCita === "" || fecha_cita === "" || matricula === ""){
         alertify.error('Digite los campos de Nombre y Fecha');
+        return null;
+    }
+
+    if(matricula === "" || matricula === null){
+        alertify.error('No estas matriculado en ningun grupo');
         return null;
     }
 
@@ -245,7 +318,7 @@ function agendarCita() {
     }
 
     post(url, data);
-    setTimeout(refescarTablaCitas(idEstudiante),3000);
+    location.reload();
 
 }
 
@@ -317,8 +390,12 @@ function uploadHV() {
     formData.append('link', link);
     formData.append('descripcion', descripcion);
 
-    if(nombreContenido === "" || link === "" || nombreContenido === null || link === null || file === "" || file === undefined){
-        alertify.error('Digite los campos para enviar el contenido');
+    if(nombreContenido === "" || nombreContenido === null ){
+        alertify.error('Digite el nombre del contenido a enviar');
+        return null;
+    }
+    if(link === null || link === ""){
+        alertify.error('Debe proporcionar un url para agregar al contenido');
         return null;
     }
 
@@ -336,12 +413,13 @@ function uploadHV() {
             alertify.error('Archivo demasiado pesado');
         },
     });
-
+    document.getElementById("formContenido").reset();
     return false;
 }
 
 function saveRespuesta() {
     var idTeacher = $('#idTeacher').val();
+    var estado = $('#estado').val();
     var idCita = $('#idCita').val();
     var respuesta = $('#respuesta').val();
 
@@ -355,6 +433,7 @@ function saveRespuesta() {
 
     data = {
         idTeacher,
+        estado,
         idCita,
         respuesta,
 
@@ -367,18 +446,19 @@ function saveRespuesta() {
 
 }
 
-function rechazar(idCita) {
-    var idTeacher = $('#idTeacher').val();
+function rechazar(idCita){
 
-    const url = 'profesores/Endpoints/rechazar.php'
-
-    data = {
-        idTeacher,
-        idCita,
-    }
-
-    post(url, data);
-
+    $.ajax({
+        url: "estudiantes/Endpoints/showCitasRechazar.php",
+        method: "POST",
+        data: {
+            "id": idCita
+        },
+        success: function (respuesta) {
+            $("#RespuestaCitas").attr("disabled", false);
+            $("#RespuestaCitas").html(respuesta);
+        }
+    })
 }
 
 function updateGrupo() {
@@ -409,6 +489,7 @@ function updateGrupo() {
     }
 
     post(url, data);
+    location.href = URL+'grupos/listar';
 
 }
 
@@ -433,5 +514,6 @@ function updateAsignatura() {
     }
 
     post(url, data);
+    location.href = URL+'asignatura/listar';
 
 }

@@ -75,7 +75,7 @@ require_once BD . 'db.php';
                 <span class="caret"></span>
             </button>
             <ul class="dropdown-menu">
-                <li><a href="#">Cambiar Contraseña</a></li>
+                <!--<li><a href="#">Cambiar Contraseña</a></li>-->
                 <li class="divider"></li>
                 <li><a href="<?php echo base_url();?>login/logout">Salir</a></li>
             </ul>

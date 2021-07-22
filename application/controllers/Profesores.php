@@ -30,7 +30,7 @@ class Profesores extends CI_Controller {
 
     }
 
-    public function Registrar()
+    public function registrar()
     {
         $this->load->view('layout/header');
         $this->load->view('layout/menus');

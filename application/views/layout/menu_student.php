@@ -10,7 +10,7 @@
                         <li class="nav-header">Menu</li>
                         <li><a class="ajax-link" href="<?php echo base_url();?>studentsDashboard"><i class="fa fa-home" aria-hidden="true"></i><span> Inicio</span></a>
                         </li>
-                        <li><a class="ajax-link" href="<?php echo base_url();?>matriculas"><i class="fa fa-exchange" aria-hidden="true"></i><span> Matriculas</span></a>
+                        <li><a class="ajax-link" href="<?php echo base_url();?>matriculas/listado"><i class="fa fa-exchange" aria-hidden="true"></i><span> Matriculas</span></a>
                         </li>
                         <li><a class="ajax-link" href="<?php echo base_url();?>citas"><i class="fa fa-id-card-o" aria-hidden="true"></i><span> Citas</span></a>
                         </li>

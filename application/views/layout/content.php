@@ -24,7 +24,7 @@ $students = countEstudantes();
                 <div class="box-content">
                     <div class="row">
                     <div class="col-md-3 col-sm-3 col-xs-6">
-                        <a data-toggle="tooltip" title="6 new members." class="well top-block" href="#">
+                        <a data-toggle="tooltip" title="6 new members." class="well top-block" href="<?php echo base_url()?>profesores/index">
                             <i class="fa fa-users"></i>
 
                             <div>Total Profesores</div>
@@ -36,7 +36,7 @@ $students = countEstudantes();
                     </div>
 
                         <div class="col-md-3 col-sm-3 col-xs-6">
-                            <a data-toggle="tooltip" title="6 new members." class="well top-block" href="#">
+                            <a data-toggle="tooltip" title="6 new members." class="well top-block" href="<?php echo base_url()?>profesores/listado">
                                 <i class="fa fa-users"></i>
 
                                 <div>Total Estudiantes</div>

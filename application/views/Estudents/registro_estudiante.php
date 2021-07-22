@@ -57,7 +57,7 @@
         <div>
             <ul class="breadcrumb">
                 <li>
-                    <a href="<?php echo base_url()?>welcome">Iniciar sesión</a>
+                    <a href="<?php echo base_url()?>">Iniciar sesión</a>
                 </li>
             </ul>
         </div>

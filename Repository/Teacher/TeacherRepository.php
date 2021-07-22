@@ -74,11 +74,11 @@ class TeacherRepository extends BaseRepository
     }
 
 
-    public function saveRespuesta($idTeacher, $respuesta, $id){
+    public function saveRespuesta($idTeacher, $estado, $respuesta, $id){
 
-        $sql = "update citas c set c.procesado_por = ?, c.estado = 'procesada', c.respuesta = ?  where c.id = ? ";
+        $sql = "update citas c set c.procesado_por = ?, c.estado = ?, c.respuesta = ?  where c.id = ? ";
 
-         $this->execute($sql, 'isi', [$idTeacher, $respuesta, $id]);
+         $this->execute($sql, 'issi', [$idTeacher, $estado, $respuesta, $id]);
 
         return Response::response('Respuesta enviada correctamente', null, true);
 

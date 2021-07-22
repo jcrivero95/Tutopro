@@ -4,7 +4,7 @@
     <div>
         <ul class="breadcrumb">
             <li>
-                <a href="#">Profesores</a>
+                <a href="<?php echo base_url()?>profesores/index"">Profesores</a>
             </li>
             <li>
                 <a href="#">Registrar</a>
@@ -58,7 +58,7 @@
 
                         <div class="col-md-4">
                             <label>Contraseña</label>
-                            <input type="text" id="password" class="form-control">
+                            <input type="password" id="password" class="form-control">
                         </div>
 
                     </div><br>

@@ -17,7 +17,7 @@ $teachers = get_student();
         <div class="box col-md-12">
             <div class="box-inner">
                 <div class="box-header well" data-original-title="">
-                    <h2>Listados de profesores</h2>
+                    <h2>Listados de Estudiantes</h2>
 
                 </div>
 

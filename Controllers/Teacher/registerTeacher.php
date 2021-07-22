@@ -33,7 +33,7 @@ class registerTeacher
         if(!$validateEmail) {
             return $this->repo->saveTeacher($nombre, $apellido, $tipo_id, $numero_id, $email, $telefono, $password, $rol);
         }
-        return Response::response('Este email ya se encuentra registrado', null, false);
+        return header("Location: " . $_SERVER["HTTP_REFERER"]);
     }
 
     public function saveUser($idTeacher, $email, $pass, $rol)
@@ -47,9 +47,9 @@ class registerTeacher
         return $this->repo->saveContenido($idCita, $nombre, $url, $descripcion);
     }
 
-    public function aggRespuesta($idTeacher, $respuesta, $idCita ){
+    public function aggRespuesta($idTeacher, $estado, $respuesta, $idCita ){
 
-       return $this->repo->saveRespuesta($idTeacher, $respuesta, $idCita);
+       return $this->repo->saveRespuesta($idTeacher, $estado, $respuesta, $idCita);
 
     }
 

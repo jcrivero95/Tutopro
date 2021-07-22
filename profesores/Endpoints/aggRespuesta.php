@@ -13,7 +13,7 @@ $data = json_decode($_POST['data'], true);
 $obj = new registerTeacher();
 
 
-$obj->aggRespuesta($data['idTeacher'], $data['respuesta'], $data['idCita']);
+$obj->aggRespuesta($data['idTeacher'], $data['estado'], $data['respuesta'], $data['idCita']);
 
 
 

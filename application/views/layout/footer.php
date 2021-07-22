@@ -63,6 +63,7 @@ $events = showEventsTeacher($this->session->userdata("id"));
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>
 <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+<script src="https://unpkg.com/gijgo@1.9.13/js/messages/messages.es-es.js" type="text/javascript"></script>
 
 <!-- application script for Charisma demo -->
 
@@ -194,7 +195,20 @@ $events = showEventsTeacher($this->session->userdata("id"));
 
     });
 
-    $('#fecha_cita').datetimepicker({ footer: true, modal: true });
+    $('#fecha_cita').datetimepicker({
+        format: "ddd, mmm d, yyyy h:MM TT",
+        uiLibrary: "bootstrap",
+        iconsLibrary: "fontawesome",
+        locale: 'es-es',
+        modal: true,
+        footer: true,
+        //value: "03/01/2019",
+        datepicker: {
+            disableDates:  function (date) {
+                const currentDate = new Date();
+                return date > currentDate ? true : false;
+            }
+        } });
 
 
 </script>

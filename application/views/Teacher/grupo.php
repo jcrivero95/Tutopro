@@ -1,7 +1,10 @@
 <?php
 $grupos = get_grupo($this->session->userdata("id"));
 ?>
-<div id="content" class="col-lg-10 col-sm-10">
+<div id="contentGrupo" class="col-lg-10 col-sm-10">
+    <div id="editarGrupo">
+
+    </div>
     <!-- content starts -->
     <div>
         <ul class="breadcrumb">
@@ -32,10 +35,7 @@ $grupos = get_grupo($this->session->userdata("id"));
                             <th>Asignatura</th>
                             <th>Periodo</th>
                             <th>Estado</th>
-
-                          <!--  <th> <div align="center">Acciones</div></th>-->
-
-
+                            <th> <div align="center">Acciones</div></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -46,18 +46,16 @@ $grupos = get_grupo($this->session->userdata("id"));
                                 <td class="center"><?php echo $grupo->asignatura?></td>
                                 <td class="center"><?php echo $grupo->periodo?></td>
                                 <td class="center"><?php echo $grupo->estado?></td>
-                               <!-- <td class="center">
+                                <td class="center">
                                     <div align="right">
-                                    <a class="btn btn-info" href="#">
-                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                                        Editar
-                                    </a>
-                                    <a class="btn btn-danger" href="#">
-                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                        Eliminar
-                                    </a>
+
+                                        <a class="btn btn-info" href="<?php echo base_url()?>grupos/editar/<?php echo $grupo->id?>">
+                                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                            Editar
+                                        </a>
+
                                     </div>
-                                </td>-->
+                                </td>
                             </tr>
                         <?php } ?>
                         </tbody>

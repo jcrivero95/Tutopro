@@ -30,7 +30,7 @@ $asignaturas = get_asignatura($this->session->userdata("id"));
                             <th>Codigo</th>
                             <th>Nombre</th>
 
-                         <!--   <th> <div align="center">Acciones</div></th>-->
+                           <th> <div align="center">Acciones</div></th>
 
 
                         </tr>
@@ -40,18 +40,14 @@ $asignaturas = get_asignatura($this->session->userdata("id"));
                             <tr>
                                 <td><?php echo $asignatura->codigo?></td>
                                 <td class="center"><?php echo $asignatura->nombre?></td>
-                               <!-- <td class="center">
+                                <td class="center">
                                     <div align="right">
-                                    <a class="btn btn-info" href="#">
+                                    <a class="btn btn-info" href="<?php echo base_url()?>asignatura/editar/<?php echo $asignatura->id?>">
                                         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                         Editar
                                     </a>
-                                    <a class="btn btn-danger" href="#">
-                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
-                                        Eliminar
-                                    </a>
                                     </div>
-                                </td>-->
+                                </td>
                             </tr>
                         <?php } ?>
                         </tbody>

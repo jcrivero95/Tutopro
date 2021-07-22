@@ -1,12 +1,12 @@
 <?php
-$teachers = get_teacher();
+$teachers = get_student();
 ?>
 <div id="content" class="col-lg-10 col-sm-10">
     <!-- content starts -->
     <div>
         <ul class="breadcrumb">
             <li>
-                <a href="#">Profesores</a>
+                <a href="#">Estudiantes</a>
             </li>
             <li>
                 <a href="#">Listado</a>

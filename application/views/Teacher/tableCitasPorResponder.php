@@ -27,10 +27,10 @@ $citas = getCitasTeacher($this->session->userdata("id"));
                     <i class="fa fa-check-square-o" aria-hidden="true"></i>
                     Responder
                 </button>
-                <a class="btn btn-danger" href="#">
+                <button class="btn btn-danger" onclick="rechazar(<?php echo $cita->id ?>)">
                     <i class="fa fa-times" aria-hidden="true"></i>
                     Rechazar
-                </a>
+                </button>
             </td>
         </tr>
     <?php }?>

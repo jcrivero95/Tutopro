@@ -27,12 +27,12 @@ $grupos = getGrupos($this->session->userdata("id"));
                     <div class="row">
                         <div class="col-md-6">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <input type="hidden" id="idEstudiante" value="<?php echo $this->session->userdata("id")?>">
                                 <label>Nombre </label>
                                 <input type="text" placeholder="Nombre" class="form-control" id="nombreCita">
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <label>Asignatura</label>
                                 <select class="form-control" id="matricula">
                                     <?php foreach($grupos as $grupo){?>
@@ -40,14 +40,16 @@ $grupos = getGrupos($this->session->userdata("id"));
                                     <?php } ?>
                                 </select>
                             </div>
-                            <div class="col-md-4">
-                                <label>Fecha</label>
-                                <input type="text"  id="fecha_cita" >
-                            </div>
-                        </div>
-                            <div class="mb-3">
+                        </div><br>
+                            <div class="row">
+                            <div class="col-md-12">
+                                <label>Fecha</label></br>
+                                <input type="text"  id="fecha_cita">
+                            </div><br>
+                            <div class="col-md-12"><br>
                                 <label for="descripcionCita" class="form-label">Descripción de la solicitud</label>
                                 <textarea class="form-control" id="descripcionCita" rows="5"></textarea>
+                            </div>
                             </div><br>
                             <button class="btn btn-primary" onclick="agendarCita()">Guardar</button>
                         </div>

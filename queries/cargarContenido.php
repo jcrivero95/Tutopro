@@ -9,7 +9,7 @@ $descripcion = $_POST['descripcion'];
 $fichero = $_FILES["file"];
 
 // Cargando el fichero en la carpeta "subidas"
-//move_uploaded_file($fichero["tmp_name"], "subidas/".$id.$fichero["name"]);
+move_uploaded_file($fichero["tmp_name"], "subidas/".$id.$fichero["name"]);
 cargarContenido($id, $nombreContenido, $link, $descripcion, $id.$fichero["name"]);
 
 // Redirigiendo hacia atrás

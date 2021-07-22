@@ -102,7 +102,7 @@
                                 <input type="text" class="form-control" placeholder="Email" id="email" required >
                             </div>
                             <div class="col-md-4">
-                                <input type="text" class="form-control" placeholder="Contraseña" id="pass" required >
+                                <input type="password" class="form-control" placeholder="Contraseña" id="pass" required >
                             </div>
                         </div>
                         <div class="clearfix"></div>

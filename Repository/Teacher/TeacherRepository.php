@@ -46,12 +46,30 @@ class TeacherRepository extends BaseRepository
 
     }
 
+    public function updtadeGrupo($nombre, $codigo, $periodo, $idProfesor, $asignatura, $idGrupo)
+    {
+        $sql = "update grupo g set g.nombre =?, g.codigo=?, g.periodo=?, g.idProfesor = ?, g.idAsignatura = ? where g.id =  $idGrupo";
+
+        $this->execute($sql, 'sssii', [$nombre, $codigo, $periodo, $idProfesor, $asignatura]);
+        return Response::response('Grupo Actualizado correctamente', null, true);
+
+    }
+
     public function crearAsignatura($nombre, $codigo, $id)
     {
         $sql = "insert into asignatura(nombre, codigo, user_id) values (?,?,?)";
 
         $this->execute($sql, 'ssi', [$nombre, $codigo, $id]);
         return Response::response('Asignatura creada correctamente', null, true);
+
+    }
+
+    public function updateAsignatura($nombre, $codigo, $id)
+    {
+        $sql = "update asignatura a set a.nombre = ?, a.codigo = ? where a.id = ?";
+
+        $this->execute($sql, 'ssi', [$nombre, $codigo, $id]);
+        return Response::response('Asignatura actualizada correctamente', null, true);
 
     }
 
@@ -63,6 +81,18 @@ class TeacherRepository extends BaseRepository
          $this->execute($sql, 'isi', [$idTeacher, $respuesta, $id]);
 
         return Response::response('Respuesta enviada correctamente', null, true);
+
+
+
+    }
+
+    public function rechazarCita($idTeacher, $id){
+
+        $sql = "update citas c set c.procesado_por = ?, c.estado = 'rechazada' where c.id = ? ";
+
+        $this->execute($sql, 'ii', [$idTeacher, $id]);
+
+        return Response::response('Cita rechazada', null, true);
 
 
 

@@ -194,11 +194,7 @@ $events = showEventsTeacher($this->session->userdata("id"));
 
     });
 
-    $('#fecha_cita').datetimepicker({
-        uiLibrary: 'bootstrap',
-        modal: true,
-        footer: true
-    });
+    $('#fecha_cita').datetimepicker({ footer: true, modal: true });
 
 
 </script>

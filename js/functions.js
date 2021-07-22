@@ -367,31 +367,71 @@ function saveRespuesta() {
 
 }
 
-function rechazar() {
+function rechazar(idCita) {
     var idTeacher = $('#idTeacher').val();
-    var idCita = $('#idCita').val();
 
-    if(respuesta === "" ){
-        alertify.error('Digite una respuesta');
-        return null;
-    }
-
-    const url = 'profesores/Endpoints/aggRespuesta.php'
+    const url = 'profesores/Endpoints/rechazar.php'
 
     data = {
         idTeacher,
         idCita,
-        respuesta,
+    }
 
+    post(url, data);
+
+}
+
+function updateGrupo() {
+
+    var idGrupo = $('#idGrupo').val();
+    var idTeacher = $('#id').val();
+    var nombre = $('#nombre').val();
+    var codigo = $('#codigo').val();
+    var periodo = $('#periodo').val();
+    var asignatura = $('#asignatura').val();
+
+
+    const url = 'updateGrupo.php'
+
+    if (nombre === "" || codigo === "" || asignatura === "" || asignatura === null || periodo === "") {
+        alertify.error('Digite todos los campos');
+        return null;
+    }
+
+    data = {
+        idTeacher,
+        nombre,
+        codigo,
+        periodo,
+        asignatura,
+        idGrupo
 
     }
 
     post(url, data);
-    location.reload();
-
 
 }
 
 
 
+function updateAsignatura() {
+    var id = $('#id').val();
+    var nombre = $('#nombre').val();
+    var codigo = $('#codigo').val();
 
+    const url = 'updateAsignatura.php'
+
+    if (nombre === "" || codigo === "") {
+        alertify.error('Digite todos los campos');
+        return null;
+    }
+
+    data = {
+        nombre,
+        codigo,
+        id
+    }
+
+    post(url, data);
+
+}

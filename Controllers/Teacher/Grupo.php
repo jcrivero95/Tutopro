@@ -34,7 +34,14 @@ class Grupo
         if(!$validateCodigo) {
             return $this->repo->crearGrupo($nombre, $codigo, $periodo, $idProfesor, $asignatura);
         }
-        return Response::response('No se puede crear el grupo con este codigo', null, true);
+        return Response::response('No se puede crear el grupo con este codigo', null, false);
+    }
+
+    public function update($nombre, $codigo, $periodo, $idProfesor, $asignatura, $idGrupo)
+    {
+        return $this->repo->updtadeGrupo($nombre, $codigo, $periodo, $idProfesor, $asignatura, $idGrupo);
+
+
     }
 
 

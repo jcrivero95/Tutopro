@@ -26,7 +26,7 @@ $citas = countCitasProcesada($this->session->userdata("id"));
                 <div class="box-content">
                     <div class=" row">
                         <div class="col-md-3 col-sm-3 col-xs-6">
-                            <a data-toggle="tooltip" title="6 new members." class="well top-block" href="#">
+                            <a data-toggle="tooltip" title="6 new members." class="well top-block" href="<?php echo base_url()?>grupos/listar">
                                 <i class="fa fa-users"></i>
 
                                 <div>Total Grupos</div>
@@ -38,7 +38,7 @@ $citas = countCitasProcesada($this->session->userdata("id"));
                         </div>
 
                         <div class="col-md-3 col-sm-3 col-xs-6">
-                            <a data-toggle="tooltip" title="4 new pro members." class="well top-block" href="#">
+                            <a data-toggle="tooltip" title="4 new pro members." class="well top-block" href="<?php echo base_url()?>asignatura/listar">
                                 <i class="fa fa-cubes" aria-hidden="true"></i>
 
                                 <div>Total Asignaturas</div>
@@ -50,7 +50,7 @@ $citas = countCitasProcesada($this->session->userdata("id"));
                         </div>
 
                         <div class="col-md-3 col-sm-3 col-xs-6">
-                            <a data-toggle="tooltip" title="$34 new sales." class="well top-block" href="#">
+                            <a data-toggle="tooltip" title="$34 new sales." class="well top-block" href="<?php echo base_url()?>citasProfesor">
                                 <i class="fa fa-calendar" aria-hidden="true"></i>
 
                                 <div>Citas Pendientes</div>
@@ -62,10 +62,10 @@ $citas = countCitasProcesada($this->session->userdata("id"));
                         </div>
 
                         <div class="col-md-3 col-sm-3 col-xs-6">
-                            <a data-toggle="tooltip" title="$34 new sales." class="well top-block" href="#">
+                            <a data-toggle="tooltip" title="$34 new sales." class="well top-block" href="<?php echo base_url()?>citasProfesor">
                                 <i class="fa fa-calendar" aria-hidden="true"></i>
 
-                                <div>Citas Pendientes</div>
+                                <div>Citas Procesadas</div>
                                 <?php foreach ($citas as $cita){?>
                                     <div><?php echo $cita->countaCitas?></div>
                                     <span class="notification red"><?php echo $cita->countaCitas?></span>

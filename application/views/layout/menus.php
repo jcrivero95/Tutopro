@@ -12,6 +12,8 @@
                         </li>
                         <li><a class="ajax-link" href="<?php echo base_url();?>profesores/index"><i class="fa fa-user"></i><span> Profesores</span></a>
                         </li>
+                        <li><a class="ajax-link" href="<?php echo base_url();?>profesores/listado"><i class="fa fa-user"></i><span> Estudiantes</span></a>
+                        </li>
 
 
                 </div>

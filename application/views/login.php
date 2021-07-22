@@ -30,7 +30,7 @@
     <link href='<?php echo base_url()?>css/uploadify.css' rel='stylesheet'>
     <link href='<?php echo base_url()?>css/animate.min.css' rel='stylesheet'>
 
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="<?php echo base_url()?>bower_components/jquery/jquery.min.js"></script>
 
 </head>
@@ -80,7 +80,7 @@
                         <div class="clearfix"></div><br>
 
                         <div class="input-group input-group-lg">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock "></i></span>
+                            <span class="input-group-addon"><i class="fa fa-key "></i></span>
                             <input type="password" class="form-control" placeholder="Password" name="password" required >
                         </div>
                         <div class="clearfix"></div>

@@ -17,6 +17,17 @@ function get_teacher()
     return $repo;
 }
 
+function get_student()
+{
+    $repo = array();
+    $con = con();
+    $query = $con->query("select * from usuarios where rol = 2");
+    while ($r = $query->fetch_object()) {
+        $repo[] = $r;
+    }
+    return $repo;
+}
+
 function get_grupos($codigo)
 {
     $repo = array();
@@ -48,6 +59,17 @@ function countTeacher()
     $repo = array();
     $con = con();
     $query = $con->query("select count(u.nombre) as profesores from usuarios u where u.rol = 3");
+    while ($r = $query->fetch_object()) {
+        $repo[] = $r;
+    }
+    return $repo;
+}
+
+function countEstudantes()
+{
+    $repo = array();
+    $con = con();
+    $query = $con->query("select count(u.nombre) as profesores from usuarios u where u.rol = 2");
     while ($r = $query->fetch_object()) {
         $repo[] = $r;
     }
@@ -188,8 +210,20 @@ function get_grupo($id)
 {
     $repo = array();
     $con = con();
-    $query = $con->query("select g.nombre, g.codigo, g.periodo, g.estado, a.nombre as asignatura from grupo g
+    $query = $con->query("select g.nombre, g.id, g.codigo, g.periodo, g.estado, a.nombre as asignatura from grupo g
 inner join asignatura a on a.id = g.idAsignatura  where g.idProfesor = $id");
+    while ($r = $query->fetch_object()) {
+        $repo[] = $r;
+    }
+    return $repo;
+}
+
+function get_edtitgrupo($idUser, $idAsignatura, $idGrupo)
+{
+    $repo = array();
+    $con = con();
+    $query = $con->query("select g.nombre, a.id as idAsignatura, g.id, g.codigo, g.periodo, g.estado, a.nombre as nombreAsignatura from grupo g
+inner join asignatura a on a.id = g.idAsignatura  where g.idProfesor = $idUser and a.id = $idAsignatura and g.id = $idGrupo");
     while ($r = $query->fetch_object()) {
         $repo[] = $r;
     }

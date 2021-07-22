@@ -21,6 +21,15 @@ class Profesores extends CI_Controller {
 
     }
 
+    public function listado()
+    {
+        $this->load->view('layout/header');
+        $this->load->view('layout/menus');
+        $this->load->view('Teacher/list_estudiantes');
+        $this->load->view('layout/footer');
+
+    }
+
     public function Registrar()
     {
         $this->load->view('layout/header');

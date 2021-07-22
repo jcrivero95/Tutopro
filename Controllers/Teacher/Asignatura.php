@@ -26,6 +26,11 @@ class Asignatura
         return $this->repo->crearAsignatura($nombre, $codigo, $id);
     }
 
+    public function update($nombre, $codigo, $id)
+    {
+        return $this->repo->updateAsignatura($nombre, $codigo, $id);
+    }
+
 
 
 }

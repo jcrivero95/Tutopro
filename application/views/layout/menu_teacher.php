@@ -10,13 +10,12 @@
                         <li class="nav-header">Menu</li>
                         <li><a class="ajax-link" href="<?php echo base_url();?>techerDashboard"><i class="fa fa-home" aria-hidden="true"></i><span> Inicio</span></a>
                         </li>
-                        <li><a class="ajax-link" href="<?php echo base_url();?>grupos/listar"><i class="fa fa-users" aria-hidden="true"></i><span> Grupos</span></a>
-                        </li>
                         <li><a class="ajax-link" href="<?php echo base_url();?>asignatura/listar"><i class="fa fa-folder-open" aria-hidden="true"></i></i><span> Asignaturas</span></a>
+                        </li>
+                        <li><a class="ajax-link" href="<?php echo base_url();?>grupos/listar"><i class="fa fa-users" aria-hidden="true"></i><span> Grupos</span></a>
                         </li>
                         <li><a class="ajax-link" href="<?php echo base_url();?>citasProfesor"><i class="fa fa-id-card-o" aria-hidden="true"></i><span> Citas</span></a>
                         </li>
-
                 </div>
             </div>
         </div>

@@ -394,8 +394,8 @@ function uploadHV() {
         alertify.error('Digite el nombre del contenido a enviar');
         return null;
     }
-    if(link === null || link === ""){
-        alertify.error('Debe proporcionar un url para agregar al contenido');
+    if((link === null || link === "") && (file === undefined)){
+        alertify.error('Debe proporcionar una url o archivo para agregar al contenido');
         return null;
     }
 

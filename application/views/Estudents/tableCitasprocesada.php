@@ -24,10 +24,12 @@ $citas = getProcesadas($this->session->userdata("id"));
             <td class="center"><?php echo $cita->nombre?></td>
             <td class="center"><?php echo $cita->descripcion?></td>
             <td class="center">
-                <a class="btn btn-link" target="_blank" href="<?php echo $cita->url; ?>"> <i class="fa fa-link" aria-hidden="true"></i></a>
-               <?php if($cita->idCita != $cita->file) {?>
+            <?php if(!empty($cita->url)): ?>
+                    <a class="btn btn-link" target="_blank" href="<?php echo $cita->url; ?>"> <i class="fa fa-link" aria-hidden="true"></i></a>
+                <?php endif; ?>
+               <?php if($cita->idCita != $cita->file): ?>
                 <a class="btn btn-link" style="color: #3bbc17; font-size:18px;" download="<?php echo $cita->file ?>" href="<?php echo base_url()?>queries/subidas/<?php echo $cita->file; ?>"> <i class="fa fa-cloud-download" aria-hidden="true"></i></a>
-                <?php } ?>
+                <?php endif; ?>
             </td>
         </tr>
     <?php } ?>
